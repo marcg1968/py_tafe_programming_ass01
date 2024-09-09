@@ -46,6 +46,12 @@ def verifyUserPw(*args):
     # default
     return False
 
+# prompts for input of password
+# NOTE: `getpass` prevents password being echoed to console
+def promptForPassword():
+    pw = getpass('Input password: ')
+    return pw
+
 def main():
     print(welcomeText)
     finished = False # on successful login, set to True
@@ -53,6 +59,8 @@ def main():
     # count the number of login attempts
     count = 0
     while not finished:
+
+        # break loop if login attempts reach maximum permitted
         if count and count >= max_attempts:
             break
         
@@ -62,18 +70,19 @@ def main():
 
         # restart while loop if zero length input
         if not name:
+            count += 1 # increment attempts counter
             continue
 
-        # prompt for password (getpass prevents password being echoed to console)
-        # restart loop if zero length input
-        pw = getpass('Input password: ')
+        # prompt for password; restart loop if zero length input
+        pw = promptForPassword()
         if not pw:
+            count += 1 # increment attempts counter
             continue
 
         resultCredentialsCheck = verifyUserPw(name, pw)
         
         if not resultCredentialsCheck:
-            count += 1
+            count += 1 # increment attempts counter
             print('\nIncorrect password or unknown username. Please try again.\n')
         else:
             print('\nPassword accepted.', 'Logged in as', name, '\n')
@@ -82,6 +91,6 @@ def main():
     # if reached here and not finished, display failure message
     if not finished:
         print(numberOfAttemptsText + ':', count)
-        print(failText)
+        print(failText, '\n')
 
 main()

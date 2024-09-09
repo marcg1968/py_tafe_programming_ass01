@@ -54,6 +54,8 @@ def addUserCredentialsToFile(name, pw):
         success = True
     return success
 
+# prompts for input of new password
+# NOTE: password is shown in plaintext as typed by the user
 def promptAndCheckPassword():
     pw = ''
     pwCheck = False
