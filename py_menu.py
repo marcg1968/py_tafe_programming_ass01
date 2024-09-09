@@ -22,6 +22,7 @@ import py_rego
 isLoggedIn = False
 needToLogin = 'You need to log in first'
 alreadyLoggedIn = 'You are already logged in'
+choicePrompt = 'Enter your choice:'
 menuTxt = '''\
 +++++++++++++++++++++++
 +++    MAIN MENU    +++
@@ -64,9 +65,11 @@ def main():
     shouldExit = False
     while not shouldExit:
         showMenu()
-        choice = str(input('Choice: '))
+        choice = str(input(choicePrompt.strip() + ' '))
         # only consider first char/number entered and make it uppercase
         choice = choice[0:1].upper()
+        if not choice:
+            continue
         if choice == 'X':
             shouldExit = True
             print('Now exiting')
@@ -80,7 +83,8 @@ def main():
                 py_list.show_accounts()
             else:
                 print(needToLogin)
-                doLogin()
+                if doLogin():
+                    py_list.show_accounts()
         # if reached here, the input is not valid, loop will restart
 
 

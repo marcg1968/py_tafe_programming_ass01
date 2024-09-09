@@ -24,6 +24,9 @@ promptName = 'Enter a unique username'
 promptPw = 'Enter a password'
 accounts_filepath = './accounts.txt'
 password_min_length = 10
+max_attempts = 5
+numberOfAttemptsText = 'Your number of attempts has reached'
+failText = 'Your attempt to register a new user has failed'
 
 ##############
 # functions
@@ -43,6 +46,8 @@ def chkUserInAccounts(*args):
 
 def addUserCredentialsToFile(name, pw):
     success = False
+    if not name or not pw: # needs to have non zero name and password values
+        return False
     try:
         f = open(accounts_filepath, 'a')
         f.write('\n' + name + ',' + pw)
@@ -59,13 +64,20 @@ def addUserCredentialsToFile(name, pw):
 def promptAndCheckPassword():
     pw = ''
     pwCheck = False
+    count = 0 # count the number of attempts
     while pwCheck is False:
+        # break loop if login attempts reach maximum permitted
+        if count and count >= max_attempts:
+            print(numberOfAttemptsText + ':', count)
+            print(failText, '\n')
+            break
         pw = input(promptPw + ': ')
         pwCheck = True if len(pw) >= password_min_length else False
         if pwCheck is True:
             break
         print('Password needs to be of length ' + str(password_min_length) + ' or greater')
         print('Try again, please ... ')
+        count += 1 # increment attempts counter
     return pw
 
 # prompts for username and checks if username already defined
@@ -95,16 +107,27 @@ def register_user():
     showWelcome()
 
     finished = False
+    # count the number of attempts
+    count = 0
     while not finished:
+
+        # break loop if login attempts reach maximum permitted
+        if count and count >= max_attempts:
+            print(numberOfAttemptsText + ':', count)
+            print(failText, '\n')
+            break
 
         name = promptUserName()
         if not name:
+            count += 1 # increment attempts counter
             continue
 
         # if reached here, account doesn't yet exist
 
         # check password min length requirements
         pw = promptAndCheckPassword()
+        if not pw: # if empty restart loop
+            continue
 
         # if reached here, password input meets requirements
         print('Password accepted')
