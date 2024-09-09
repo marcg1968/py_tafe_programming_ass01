@@ -15,7 +15,10 @@ import py_list
 import py_login
 import py_rego
 
-# Global variables and constants
+#################################
+# constants and global variables
+#################################
+
 isLoggedIn = False
 needToLogin = 'You need to log in first'
 alreadyLoggedIn = 'You are already logged in'
@@ -29,6 +32,10 @@ menuItems = [
     'Log in',
     'List user accounts',
 ]
+
+#################################
+# functions
+#################################
 
 def showMenu():
     print(menuTxt)
@@ -48,6 +55,10 @@ def doLogin():
         isLoggedIn = True
         return True
     return False
+
+#################
+# MAIN ROUTINE
+#################
 
 def main():
     shouldExit = False
