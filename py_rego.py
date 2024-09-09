@@ -126,8 +126,8 @@ def register_user():
 
         # check password min length requirements
         pw = promptAndCheckPassword()
-        if not pw: # if empty restart loop
-            continue
+        if not pw: # if empty, attempts are exhausted so exit loop
+            break
 
         # if reached here, password input meets requirements
         print('Password accepted')
