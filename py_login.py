@@ -52,7 +52,11 @@ def promptForPassword():
     pw = getpass('Input password: ')
     return pw
 
-def main():
+#################
+# MAIN ROUTINE
+#################
+
+def login():
     print(welcomeText)
     finished = False # on successful login, set to True
     name = ''
@@ -92,5 +96,10 @@ def main():
     if not finished:
         print(numberOfAttemptsText + ':', count)
         print(failText, '\n')
+    else: # login was successful
+        return True
 
-main()
+# This will run if the file is run directly 
+if __name__ == '__main__':  
+    login()
+

@@ -14,19 +14,26 @@ Marc Greyling
 
 2024-09-03
 
+## VERSION
+
+0.1.21
+
 ## PURPOSE
 
-This package contains 3 base programs:
+This package contains 3 base components and a wrapper program which displays a menu
+referencing the base components as modules and a and a text file containing user accounts.
+
+### Base components
 
 1. `py_rego.py` - registration of username and password
 2. `py_login.py` - routine to check username and password provided by user against recorded user accounts
 3. `py_list.py` - list existing user accounts
 
-and a text file containing user accounts:
+### Wrapper menu program
 
-1. `accounts.txt`
+4. `py_menu.py` - menu program
 
-## VERSION
+### Data
 
-0.1.20
+5. `accounts.txt`
 

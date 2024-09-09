@@ -86,7 +86,11 @@ def showWelcome():
     print(welcomeTextMain, '\n')
     print(welcomeTextPwMinLen, password_min_length, '\n')
 
-def main():
+#################
+# MAIN ROUTINE
+#################
+
+def register_user():
 
     showWelcome()
 
@@ -108,9 +112,6 @@ def main():
         # append account credentials to file
         finished = addUserCredentialsToFile(name, pw)
 
-#################
-# MAIN ROUTINE
-#################
-
-# start main function
-main()
+# This will run if the file is run directly 
+if __name__ == '__main__':  
+    register_user()

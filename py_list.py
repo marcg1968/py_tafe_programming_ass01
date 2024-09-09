@@ -38,7 +38,11 @@ def loopOverAccounts():
                 collect.append(arr[0])
     return collect
 
-def main():
+#################
+# MAIN ROUTINE
+#################
+
+def show_accounts():
     print(welcomeText)
     count = 0
     accounts = loopOverAccounts()
@@ -49,4 +53,7 @@ def main():
     print(endText)
     print()
 
-main()
+# This will run if the file is run directly 
+if __name__ == '__main__':  
+    print('This routine should not be run directly')
+
