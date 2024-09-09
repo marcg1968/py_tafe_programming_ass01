@@ -6,12 +6,3 @@ popeyedd,1989eidjce
 junkman00,p3*(kd8&ld
 sbj2021,$d5e(ep2(de4ab3
 robotman,7777Spy007
-
-test1,test1test1test1
-test2,asdfjasd;fkjasdfkjs;dlfjk
-test3,asdkfjsdlkfjas;dlkfjas;dkf
-test9,asdfkjasd;flkjasdf;kjsadf
-test99999,asdfasdfasdfsadfsaddfasdsfaddfafds
-test987,98765432109876
-test22,testtesttesttest
-test98,987654321654
