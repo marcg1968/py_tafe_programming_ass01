@@ -22,6 +22,10 @@ This package contains 3 base programs:
 2. `py_login.py` - routine to check username and password provided by user against recorded user accounts
 3. `py_list.py` - list existing user accounts
 
+and a text file containing user accounts:
+
+1. `accounts.txt`
+
 ## VERSION
 
 0.1.20
